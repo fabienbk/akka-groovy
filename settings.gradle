@@ -1,0 +1,3 @@
+rootProject.name = 'akka-groovy'
+include 'engine'
+
