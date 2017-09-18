@@ -27,7 +27,7 @@ public class ScriptActor extends AbstractActor {
 
     private void runScript(RunScript runScriptMessage) throws Exception {
         Invocable invocableEngine = getEngine(runScriptMessage.getFile());
-        ServiceAPI serviceAPI = new AkkaServiceAPI(runScriptMessage.getTargetActor());
+        ServiceAPI serviceAPI = new AkkaServiceAPI(runScriptMessage.getTargetActor(), runScriptMessage.getIdentity(), runScriptMessage.getSubmittedDocument());
         invocableEngine.invokeFunction("main", serviceAPI, runScriptMessage.getIdentity(), runScriptMessage.getSubmittedDocument());
     }
 

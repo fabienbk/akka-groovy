@@ -39,13 +39,14 @@ public class AkkaServiceAPI implements ServiceAPI {
     private Object createMessage(Service service) {
         switch (service) {
             case SMARTEYE: return new CallSmartEye(document);
+            default:
             case VELOCITY_CHECK: return new CallVelocityCheck(document);
         }
     }
 
     @Override
     public Object call(Service service) {
-        return PatternsCS.ask(targetActor, new CallWorker(), 1000L).toCompletableFuture().join();
+        return PatternsCS.ask(targetActor, createMessage(service), 1000L).toCompletableFuture().join();
     }
 
     /**

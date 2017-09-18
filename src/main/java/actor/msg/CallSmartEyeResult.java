@@ -12,4 +12,7 @@ public class CallSmartEyeResult extends CallWorkerResult {
         this.document = document;
     }
 
+    public Document getDocument() {
+        return document;
+    }
 }

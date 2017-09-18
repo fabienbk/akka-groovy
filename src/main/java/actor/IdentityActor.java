@@ -35,11 +35,11 @@ public class IdentityActor extends AbstractActor {
 
     private void callWorker(CallWorker callWorker) throws InterruptedException {
         if (callWorker instanceof CallSmartEye) {
-            Thread.sleep(1000L);
+            Thread.sleep(500L);
             sender().tell(new CallSmartEyeResult(callWorker.getDocument()), self());
         }
         else if (callWorker instanceof CallVelocityCheck) {
-            Thread.sleep(500L);
+            Thread.sleep(200L);
             sender().tell(new CallVelocityCheckResult(callWorker.getDocument()), self());
         }
     }

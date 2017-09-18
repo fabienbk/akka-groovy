@@ -10,7 +10,7 @@ import pojo.Identity
  */
 def main(ServiceAPI api, Identity identity, Document document) {
 
-    println("Running script...")
+    println("Running script for identity $identity.id")
 
     resultAsync = null
 
@@ -20,9 +20,9 @@ def main(ServiceAPI api, Identity identity, Document document) {
     })
 
     CallSmartEyeResult resultSync = api.call(Service.SMARTEYE)
-    println("smart eye result ok")
 
-    println("Waiting for completion...")
+    doc = resultSync.getDocument()
+
     api.waitForCompletion()
 
     println("results= $resultAsync and $resultSync")
